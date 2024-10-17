@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athletics Events</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Results</a></li>
+            <li><a href="#">Coaches</a></li>
+            <li><a href="#">Athletes</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Buttons to switch between sections -->
+    <div class="btn-group">
+        <button onclick="showSection('viewEvents')" class="btn">View Events</button>
+        <button onclick="showSection('createEvent')" class="btn">Create New Event</button>
+    </div>
+
+    <!-- Section: View Events -->
+    <div id="viewEvents" class="section active">
+        <h1>Events</h1>
+        <input type="text" id="search" placeholder="Search by meet name or event title" onkeyup="filterEvents()">
+        
+        <table id="eventsTable">
+            <thead>
+                <tr>
+                    <th>Event ID</th>
+                    <th>Event Title</th>
+                    <th>Meet Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>E_00001</td>
+                    <td>Rapid Dash</td>
+                    <td>Victory Sprint Classic</td>
+                    <td><button class="view-btn">View Registrations</button></td>
+                </tr>
+                <tr>
+                    <td>E_00002</td>
+                    <td>Golden Mile Run</td>
+                    <td>Grand Marathon Challenge</td>
+                    <td><button class="view-btn">View Registrations</button></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+        
+        <button onclick="printPage()" class="print-btn">Print Events</button>
+    </div>
+
+    <!-- Section: Create New Event -->
+    <div id="createEvent" class="section">
+        <h1>Create New Event</h1>
+        <form>
+            <div class="form-group">
+                <label for="eventTitle">Event Title</label>
+                <input type="text" id="eventTitle" placeholder="Enter event title">
+            </div>
+            
+            <div class="form-group">
+                <label for="eventDate">Event Date</label>
+                <input type="text" id="eventDate" placeholder="dd/mm/yyyy">
+            </div>
+
+            <div class="form-group">
+                <label for="meet">Meet</label>
+                <input type="text" id="meet" placeholder="Search for a meet">
+                <select>
+                    <option>Select a meet</option>
+                    <!-- Add options here -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="venue">Venue</label>
+                <input type="text" id="venue" placeholder="Enter venue">
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" id="category" placeholder="Enter category">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Event Description</label>
+                <textarea id="description" placeholder="Describe the event"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="file" id="photo">
+            </div>
+
+            <button type="submit" class="create-btn">Create Event</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
