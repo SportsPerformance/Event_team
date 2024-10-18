@@ -68,10 +68,10 @@ public class Controller {
 
     // DELETE: Delete a single event by ID
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Event> removeEvent(@PathVariable Long id) {
+    public ResponseEntity<String> removeEvent(@PathVariable Long id) {
         Event deletedEvent = service.deleteEventId(id);
         if (deletedEvent != null) {
-            return ResponseEntity.ok(deletedEvent);
+            return ResponseEntity.ok("Event deleted successfully");
         } else {
             return ResponseEntity.notFound().build();
         }
